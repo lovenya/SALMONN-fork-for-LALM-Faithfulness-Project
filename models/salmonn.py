@@ -51,7 +51,7 @@ class SALMONN(nn.Module):
     def device(self):
         return list(self.parameters())[0].device
 
-    def maybe_autocast(self, dtype=torch.float16):
+    def maybe_autocast(self, dtype=torch.bfloat16):
         # if on cpu, don't use autocast
         # if on gpu, use autocast with dtype if provided, otherwise use torch.float16
         enable_autocast = self.device != torch.device("cpu")
@@ -420,7 +420,7 @@ class SALMONN(nn.Module):
         embeds = torch.cat([bos_embeds, speech_embeds], dim=1)
         attns = torch.cat([atts_bos, speech_atts], dim=1)
 
-        stop_words_ids = [torch.tensor([2]).cuda()]  
+        stop_words_ids = [torch.tensor([2]).to(self.device)]
         stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])
         outputs = self.llama_model.generate(
             inputs_embeds=embeds,
