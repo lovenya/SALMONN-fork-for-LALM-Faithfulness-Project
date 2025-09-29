@@ -8,7 +8,10 @@
   </a>
 </h1>
 
-🚀🚀 Welcome to the repo of **SALMONN**!
+🚀🚀 Welcome to the repo of **SALMONN**!  
+This is a forked repo with custom fixes for the LALM-Faithfulness paper, and also better reproducibility.  
+Code -  https://github.com/lovenya/Measuring-Faithfulness-of-CoT-Reasoning-LALMs.git  
+Paper - https://arxiv.org/abs/2509.22363
 
 The SALMONN model family consists of a series of advanced multi-modal large language models. For more details, please refer to the corresponding branches.
 
